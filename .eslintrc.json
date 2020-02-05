@@ -1,0 +1,9 @@
+{
+    "extends": "standard",
+    "globals": {
+        "use": true
+    }
+}
+
+// AdonisJS usa o estilo Standard
+// Selecionar JSON
