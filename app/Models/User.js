@@ -1,9 +1,6 @@
 'use strict'
 
-/** @type {typeof import('@adonisjs/lucid/src/Lucid/Model')} */
 const Model = use('Model')
-
-/** @type {import('@adonisjs/framework/src/Hash')} */
 const Hash = use('Hash')
 
 class User extends Model {
@@ -15,8 +12,8 @@ class User extends Model {
      * it to the database.
      */
     this.addHook('beforeSave', async (userInstance) => {
-      if (userInstance.dirty.password) {
-        userInstance.password = await Hash.make(userInstance.password)
+      if (userInstance.dirty.password) { // verifica se a senha foi alterada
+        userInstance.password = await Hash.make(userInstance.password) // criptografa a senha
       }
     })
   }
