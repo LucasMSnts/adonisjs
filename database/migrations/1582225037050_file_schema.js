@@ -14,7 +14,7 @@ class FileSchema extends Schema {
       table.increments()
       table.string('file').notNullable()
       table.string('name').notNullable()
-      table.string('type', 20) // ver se é uma imagem, arquivo pdf... ||
+      table.string('type', 20) // ver se é uma imagem, arquivo pdf... || tamanho de 20 caracteres
       table.string('subtype', 20) // o tipo do "type", ex.: type = imagem, subtype = .png
       table.timestamps()
     })
