@@ -1,5 +1,7 @@
 'use strict'
 
+// adonis make:validator User
+
 class User {
   get validateAll () {
     return true
