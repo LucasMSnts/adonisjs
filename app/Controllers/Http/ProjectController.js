@@ -13,13 +13,8 @@ class ProjectController {
   /**
    * Show a list of all projects.
    * GET projects
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
-  async index ({ request, response, view }) {
+  async index () {
     const projects = await Project.query()
       .with('user')
       .fetch()
@@ -30,12 +25,8 @@ class ProjectController {
   /**
    * Create/save a new project.
    * POST projects
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
-  async store ({ request, response, auth }) {
+  async store ({ request, auth }) {
     const data = request.only(['title', 'description'])
 
     const project = await Project.create({ ...data, user_id: auth.user.id })
@@ -46,11 +37,6 @@ class ProjectController {
   /**
    * Display a single project.
    * GET projects/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
-   * @param {View} ctx.view
    */
   async show ({ params }) {
     const project = await Project.findOrFail(params.id)
@@ -64,10 +50,6 @@ class ProjectController {
   /**
    * Update project details.
    * PUT or PATCH projects/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async update ({ params, request }) {
     const project = await Project.findOrFail(params.id)
@@ -83,10 +65,6 @@ class ProjectController {
   /**
    * Delete a project with id.
    * DELETE projects/:id
-   *
-   * @param {object} ctx
-   * @param {Request} ctx.request
-   * @param {Response} ctx.response
    */
   async destroy ({ params }) {
     const project = await Project.findOrFail(params.id)
