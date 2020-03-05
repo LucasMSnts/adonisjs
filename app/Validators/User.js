@@ -2,6 +2,8 @@
 
 // adonis make:validator User
 
+const Antl = use('Antl')
+
 class User {
   get validateAll () {
     return true
@@ -13,6 +15,10 @@ class User {
       email: 'required|email|unique:users',
       password: 'required|confirmed'
     }
+  }
+
+  get messages () {
+    return Antl.list('validation')
   }
 }
 
