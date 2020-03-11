@@ -28,6 +28,13 @@ class User extends Model {
    *
    * @return {Object}
    */
+
+  // https://adonisjs.com/docs/4.1/relationships#_inserts_updates_deletes
+
+  addresses () {
+    return this.hasMany('App/Models/UserAddress')
+  }
+
   tokens () {
     return this.hasMany('App/Models/Token')
   }
